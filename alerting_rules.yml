@@ -1,0 +1,26 @@
+groups:
+  - name: smoketest_alerts
+    rules:
+      - alert: SmoketestFailed
+        expr: PING_GOOGLE_smoketest_state{PING_GOOGLE_smoketest_state="failed"} == 1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Ping Google smoketest has failed"
+
+      - alert: SmoketestTimedOut
+        expr: PING_GOOGLE_smoketest_state{PING_GOOGLE_smoketest_state="timed-out"} == 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Ping Google smoketest has timed out"
+
+      - alert: SmoketestDurationTooLong
+        expr: PING_GOOGLE_smoketest_duration > 5
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Ping Google smoketest is taking too long"

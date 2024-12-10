@@ -1,0 +1,13 @@
+{
+    "generic": {
+        "agent": "LocalAgent",
+        "env": "DEV",
+        "running_interval": 10
+    },
+    "services": {
+        "PING_GOOGLE": {
+            "command": ["ls", "-la"],
+            "timeout": 10
+        }
+    }
+}

@@ -1,0 +1,7 @@
+docker build -t smoketest-exporter .
+
+
+"command": ["ping", "-c", "4", "google.com"],
+
+
+smoketest_success{instance="smoketest-exporter:8000", job="smoketests", service="PING_GOOGLE", duration="", sucess="1"}
